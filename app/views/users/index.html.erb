@@ -1,0 +1,37 @@
+<h1>Control de LEDs</h1> <!-- Título de la página -->
+
+<br>
+<br>
+
+<div class="led-container">
+  <div class="led <%= 'on' if @led12State %>"></div> <!-- Div que representa el LED 12 y se agrega la clase "on" si @led12State es true -->
+  <%= button_to 'Encender LED Pin 12', turn_on_led_users_path, method: :post, class: 'btn btn-primary' %> <!-- Botón para encender el LED del Pin 12, enviará una solicitud POST a la ruta turn_on_led_users_path -->
+  <%= button_to 'Apagar LED Pin 12', turn_off_led_users_path, method: :post, class: 'btn btn-danger' %> <!-- Botón para apagar el LED del Pin 12, enviará una solicitud POST a la ruta turn_off_led_users_path -->
+</div>
+<br>
+
+<div class="led-container">
+  <div class="led <%= 'on' if @led11State %>"></div> <!-- Div que representa el LED 11 y se agrega la clase "on" si @led11State es true -->
+  <%= button_to 'Encender LED Pin 11', turn_on_led_pin11_users_path, method: :post, class: 'btn btn-primary' %> <!-- Botón para encender el LED del Pin 11, enviará una solicitud POST a la ruta turn_on_led_pin11_users_path -->
+  <%= button_to 'Apagar LED Pin 11', turn_off_led_pin11_users_path, method: :post, class: 'btn btn-danger' %> <!-- Botón para apagar el LED del Pin 11, enviará una solicitud POST a la ruta turn_off_led_pin11_users_path -->
+</div>
+<br>
+
+<div class="led-container">
+  <div class="led <%= 'on' if @led13State %>"></div> <!-- Div que representa el LED 13 y se agrega la clase "on" si @led13State es true -->
+  <%= button_to 'Encender LED Pin 13', turn_on_led_pin13_users_path, method: :post, class: 'btn btn-primary' %> <!-- Botón para encender el LED del Pin 13, enviará una solicitud POST a la ruta turn_on_led_pin13_users_path -->
+  <%= button_to 'Apagar LED Pin 13', turn_off_led_pin13_users_path, method: :post, class: 'btn btn-danger' %> <!-- Botón para apagar el LED del Pin 13, enviará una solicitud POST a la ruta turn_off_led_pin13_users_path -->
+</div>
+
+<% if Rails.env.development? %> <!--Se utiliza como un metodo de verificación para saber si se estan enviando los datos -->
+  <pre>
+    <%= debug(params) %> <!-- Mostrar los parámetros recibidos en la consola -->
+  </pre>
+<% end %>
+
+<% if @serial_param %>
+  <%= image_tag image_path_for_param(".jpg") %> <!-- Mostrar imagen según el valor de @serial_param utilizando el helper image_path_for_param -->
+  <% end %>
+
+
+
